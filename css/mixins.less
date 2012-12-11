@@ -1,0 +1,82 @@
+// Transitions
+.transition(@definition) {
+	-webkit-transition: @definition;
+	-moz-transition: @definition;
+	-ms-transition: @definition;
+	-o-transition: @definition;
+}
+
+.transition-delay(@definition) {
+	-webkit-transition-delay: @definition;
+	-moz-transition-delay: @definition;
+	-ms-transition-delay: @definition;
+	-o-transition-delay: @definition;
+
+}
+
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+	 -moz-box-shadow: @shadow;
+	 box-shadow: @shadow;
+}
+
+.border-radius(@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+
+.horizontalGradient (@startColor:rgba(0,0,0,0), @endColor: rgba(0,0,0,0)) {
+    background-color: @endColor;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor)); // Konqueror
+    background-image: -moz-linear-gradient(left, @startColor, @endColor); // FF 3.6+
+    background-image: -ms-linear-gradient(left, @startColor, @endColor); // IE10
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @startColor), color-stop(100%, @endColor)); // Safari 4+, Chrome 2+
+    background-image: -webkit-linear-gradient(left, @startColor, @endColor); // Safari 5.1+, Chrome 10+
+    background-image: -o-linear-gradient(left, @startColor, @endColor); // Opera 11.10
+    background-image: linear-gradient(left, @startColor, @endColor); // Le standard
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor)); // IE9 and down
+  }
+
+.radial-gradient(@color1, @color2, @color3, @xposition, @yposition){
+	  	background-color:@color2;
+	  	background: url('img/textureX.png'), -webkit-radial-gradient(@xposition @yposition, @color1, @color2, @color3);
+		background:url('img/bodyBG.png'),-moz-radial-gradient(@xposition @yposition, @color1, @color2, @color3);
+		background:url('img/bodyBG.png'),-ms-radial-gradient(@xposition @yposition, @color1, @color2, @color3);
+		background:url('img/bodyBG.png'), -o-radial-gradient(@xposition @yposition, @color1, @color2, @color3);
+}
+
+.noSelect (@background : @transparentColor, @textColor : inherit) {
+	::-webkit-selection {background:@background; color:@textColor;}
+	::-moz-selection {background:@background; color:@textColor;}
+	::selection {background:@background; color:@textColor;}
+}
+
+.inline-block {
+	display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+	}
+		  
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+	<meta charset="UTF-8">
+	<!-- Empeche zoom arrière sur mobiles -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galerie web - illustration - graphisme</title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />	
+	<link href='http://fonts.googleapis.com/css?family=Luckiest+Guy|Boogaloo' rel='stylesheet' type='text/css'>
+       <!-- CSS maison -->   
+		<link rel="stylesheet/less" type="text/css" href="css/style.less" />
+		<script src="js/less.js" type="text/javascript">//decrypteur less</script>
+
+      	
+   		
+		<link href="css/photoswipe.css" type="text/css" rel="stylesheet" />
+		<link href="css/isotope.css" type="text/css" rel="stylesheet" />
+
+			<script src="js/klass.js" type="text/javascript">//la magie</script>
+
+	<!-- scripts pour tout le site -->
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/photoswipe.js"></script>
+        <script type="text/javascript" src="js/jquery.anchor.js">//Slide liens internes sans # dans l'url</script>
+        
+		
+	<!-- Les réparations -->        
+		<!-- (ie) interpretation elements html5-->
+			<!--[if IE]><![endif]-->
+			<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+		<!--  (ie) responsive media queries -->	
+			<script type="text/javascript" src="js/respond.js"></script>
+            
+		<script type="text/javascript">
+
+		(
+			//appel Photoswipe
+			function(window, $, PhotoSwipe){
+				$(document).ready(function(){
+					var options = {};
+					$("#imageGrid a").photoSwipe(options);
+				}
+			);
+		}(window, window.jQuery, window.Code.PhotoSwipe));
+		
+	</script>
+
+				<script type="text/javascript">//configuration anchor.js
+		// the element inside of which we want to scroll
+        			var $elem = $('#galerie');
+	
+					$('.gridElement').live('click', function() {
+           			$('body').animate({scrollTop: -4000}, 1500, function(){ $('body').clearQueue(); });
+     			});
+	 		</script>
+            
+            
+			<script type="text/javascript">
+			
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-34376839-1']);
+			  _gaq.push(['_trackPageview']);
+			
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+			
+</script>
+</head>
+
+<body id="galerie">
+
+	<header>
+	    <div class="bubble arrowBottom">
+	        <img class="logo" src="img/logoGwarkVert.png" alt="leGwarkshop"/>               				           
+	    </div><!--bubble-->
+        
+        <h1>
+        <span><span>La</span>Galerie!</span>
+        </h1>
+        
+	</header>
+	
+	<div id="imageGrid" class="isotope">
+		<a class="gridElement" href="img/galerie/linkeoAcademy-g.jpg"></a>
+		<a class="gridElement" href="img/galerie/24hBD2.jpg"></a>
+		<a class="gridElement" href="img/galerie/love-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/lenore_g.jpg"></a>
+        
+        <a class="gridElement" href="img/galerie/magnifisens-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/alphaHarmonie-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/24hBD1.jpg"></a>
+        <a class="gridElement" href="img/galerie/japanese_gal-g.jpg"></a>
+        
+        <a class="gridElement" href="img/galerie/scriptorium-g.png"></a>
+        <a class="gridElement" href="img/galerie/traces-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/daniel-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/logomessagers-g.jpg"></a>
+        
+        <a class="gridElement" href="img/galerie/smokeur-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/augusta-g.jpg"></a>
+		<a class="gridElement" href="img/galerie/overgam-g.jpg"></a>
+		<a class="gridElement" href="img/galerie/funneling-g.jpg"></a>
+        
+        <a class="gridElement" href="img/galerie/LivredesJoueurs-g.jpg"></a>
+        <a class="gridElement" href="img/galerie/work-g.jpg"></a>
+	</div>  		
+  
+  
+	<nav class="navbar icons">
+		<ul>
+			<li><span></span><a href="index.php">Accueil</a></li>
+			<li><span></span><a href="web.html">Prestations</a></li>
+		</ul>
+	</nav>	
+
+  
+	<script src="js/isotope.js"></script>
+	<script>
+	$(function(){
+	
+		var $container 	= $('#imageGrid'),
+			$body 		= $('body'),
+	    	colW 		= 140,
+			columns 	= null;
+	        
+		$container.isotope({
+		//resizable: false,
+			masonry: {
+				columnWidth: colW
+			}					
+		});
+	
+		
+		$(window).smartresize(function(){
+			var $container 		= $('#imageGrid'),
+				currentColumns 	= Math.floor(( $body.width()) / colW);
+	  		// check if columns has changed
+	  	    if ( (currentColumns)!== columns ) {
+			  // set new column count
+			  columns = currentColumns;
+			  // apply width to container manually, then trigger relayout
+			  $container.width( (columns * colW) )
+				.isotope('reLayout');
+			 } 
+	  	}).smartresize(); // trigger resize to set container width
+	
+	
+	
+	});
+	</script>
+
+	  
+
+</body>
+
+</html>
